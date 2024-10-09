@@ -185,7 +185,7 @@ function FOLDER1()
     elseif MN8[2] == true then
       HP()
     elseif MN8[3] == true then
-    
+    gg.alert("error")
     elseif MN8[4] == true then
          local options = {
         342, 325, 345, 305, 101, 66, 68, 64, 321, 312, 356, 288, 532, 281, 293, 341, 357, 403,310,324,322,535
@@ -215,8 +215,38 @@ setvalue(startAddr + 0x61BBC5C,options[i])
             return
         end
     end
-    elseif MN8[4] == true then
     elseif MN8[5] == true then
+gg.setRanges(gg.REGION_ANONYMOUS)
+    valueFromClass("Axle", "0x8C", false, false, gg.TYPE_FLOAT)
+    gg.refineNumber("-10~0", gg.TYPE_FLOAT)
+    gg.getResults(2)
+
+    mo = gg.prompt({"キャンバー値 [-100;-1]"}, {}, {"Number"})
+    if mo then
+        gg.editAll(mo[1], gg.TYPE_FLOAT)
+    end
+
+    while true do
+        -- "もう一度変更しますか？" の確認
+        local menu = gg.alert('もう一度変更しますか？', 'はい', 'いいえ')
+        
+        if menu == 2 then
+            break -- いいえを押したら終了
+        elseif menu == 1 then
+            -- はいを押したらリファインを再実行
+            gg.setVisible(false)
+            gg.refineNumber("-10~0", gg.TYPE_FLOAT)
+            gg.getResults(50)
+
+            -- 新しい値を再度入力
+            mo = gg.prompt({"キャンバー値 [-100;-1]"}, {}, {"Number"})
+            if mo then
+                gg.editAll(mo[1], gg.TYPE_FLOAT)
+            end
+        end
+    end
+end
+    elseif MN8[6] == true then
       return
     end
   end
