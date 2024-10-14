@@ -1,4 +1,3 @@
--- Checkversion1.3.01
 taga = 1
 time = gg.makeRequest("https://api.aoikujira.com/time/get.php").content;
 if time ==nil then
@@ -140,6 +139,7 @@ function HOME()
       "荒らし関係",
       "通過",
       "便利系",
+      "その他",
       "E X I T"
     }, nil, "メニュー")
 
@@ -158,6 +158,8 @@ function HOME()
     elseif SN == 4 then
       FOLDER4()
     elseif SN == 5 then
+      FOLDER5()
+    elseif SN == 6 then			
             os.exit()
         end
     end
@@ -921,9 +923,7 @@ function FOLDER3()
        "ワールドセール",
        "お金固定",
       "戻る",
-
    }, nil, "お金")
-
     if MN8 == nil then
       gg.setVisible(false)
       while not gg.isVisible() do
@@ -1021,6 +1021,27 @@ setvalue(startAddr +
 "hC0035FD6")  
 stopClose()
     elseif MN8[3] == true then
+      return
+    end
+  end
+end
+
+function FOLDER5()
+  while true do
+    local MN8 = gg.multiChoice({
+       "バージョン確認",
+       "戻る",
+   }, nil, "その他")
+    if MN8 == nil then
+      gg.setVisible(false)
+      while not gg.isVisible() do
+        gg.sleep(100)
+      end
+      gg.setVisible(false)
+      return
+  elseif MN8[1] == true then
+gg.alert("ScriptFileVer.1.3\nScriptCodeVer.(1.3).02")
+  elseif MN8[2] == true then
       return
     end
   end
