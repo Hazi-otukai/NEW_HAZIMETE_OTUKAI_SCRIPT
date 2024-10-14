@@ -1,3 +1,4 @@
+-- Checkversion1.3.01
 taga = 1
 time = gg.makeRequest("https://api.aoikujira.com/time/get.php").content;
 if time ==nil then
