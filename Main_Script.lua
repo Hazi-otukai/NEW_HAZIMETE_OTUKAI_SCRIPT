@@ -244,8 +244,7 @@ gg.setRanges(gg.REGION_ANONYMOUS)
                 gg.editAll(mo[1], gg.TYPE_FLOAT)
             end
         end
-    end
-end
+  end
     elseif MN8[6] == true then
       return
     end
